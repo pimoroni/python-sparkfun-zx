@@ -43,6 +43,9 @@ def get_x():
 def get_z():
     return bus.read_byte_data(ADDR, 0x0a)
 
+def get_position():
+    return (get_z(), get_x())
+
 def get_gesture():
     gesture =  bus.read_byte_data(ADDR, 0x04)
     if gesture in [HOVER, HOVER_LEFT, HOVER_RIGHT, HOVER_UP, SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP]:
